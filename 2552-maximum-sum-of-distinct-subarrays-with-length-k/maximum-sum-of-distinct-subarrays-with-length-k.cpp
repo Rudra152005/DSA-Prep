@@ -7,17 +7,18 @@ public:
         for(int i=0; i<n; i++){
             sum += nums[i];
             freq[nums[i]]++;
+
             if(i >= k){
-                sum -= nums[i - k];
-                freq[nums[i - k]]--;
+                sum -= nums[i-k];
+                freq[nums[i-k]]--;
                 if(freq[nums[i-k]] == 0){
-                    freq.erase(nums[i-k]);
+                    freq.erase(nums[i - k]);
                 }
-                
             }
             if(i >= k - 1 && freq.size() == k){
-                    ans = max(ans, sum);
-                }
+                ans = max(ans, sum);
+            }
+
         }
         return ans;
     }
