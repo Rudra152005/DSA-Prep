@@ -1,0 +1,14 @@
+class Solution {
+public:
+    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) {
+        for(auto &row : image){
+            reverse(row.begin(), row.end());
+        }
+        for(auto &row : image){
+            for(int &x : row){
+                x = 1 - x;
+            }
+        }
+        return image;
+    }
+};
