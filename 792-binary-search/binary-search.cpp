@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         int l = 0;
         int r = n - 1;
-        while(l <= r){
+        while(l<=r){
             int mid = l + (r - l)/2;
             if(nums[mid] == target){
                 return mid;
@@ -15,9 +15,7 @@ public:
             else{
                 r--;
             }
-
         }
         return -1;
-        
     }
 };
