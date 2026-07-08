@@ -11,8 +11,6 @@ public:
     typedef ListNode* ln;
     void deleteNode(ListNode* node) {
         node->val = node->next->val;
-        ln temp = node->next;
         node->next = node->next->next;
-        delete temp;
     }
 };
