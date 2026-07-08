@@ -12,15 +12,16 @@ class Solution {
 public:
     typedef ListNode* ln;
     ListNode* reverseList(ListNode* head) {
-        ln prev = nullptr;
+        ln prev = NULL;
         ln curr = head;
-        while(curr != NULL){
+        while(curr){
             ln next = curr->next;
             curr->next = prev;
             prev = curr;
             curr = next;
+
         }
         return prev;
+        
     }
-
 };
