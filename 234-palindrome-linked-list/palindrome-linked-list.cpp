@@ -12,7 +12,7 @@ class Solution {
 public:
     typedef ListNode* ln;
     ListNode* reverse(ListNode* head){
-        ln prev = NULL, curr = head;
+        ln curr = head, prev = NULL;
         while(curr){
             ln next = curr->next;
             curr->next = prev;
@@ -25,8 +25,8 @@ public:
         if(!head && !head->next){
             return true;
         }
-        ln slow = head;
         ln fast = head;
+        ln slow = head;
         while(fast && fast->next){
             slow = slow->next;
             fast = fast->next->next;
