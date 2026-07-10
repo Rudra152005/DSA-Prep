@@ -9,32 +9,13 @@
 class Solution {
 public:
     typedef ListNode* ln;
-    int getlength(ListNode* head){
-        int len = 0;
-        while(head){
-            len++;
-            head = head->next;
-        }
-        return len;
-    }
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        int lenA = getlength(headA);
-        int lenB = getlength(headB);
-        while(lenB > lenA){
-            headB = headB->next;
-            lenB--;
+        ln a = headA;
+        ln b = headB;
+        while(a != b){
+            a = (a == nullptr)?headB : a->next;
+            b = (b == nullptr)?headA : b->next;
         }
-        while(lenA > lenB){
-            headA = headA->next;
-            lenA--;
-        }
-        while(headA && headB){
-            if(headA == headB){
-                return headA;
-            }
-            headA = headA->next;
-            headB = headB->next;
-        }
-        return NULL;
+        return a;
     }
 };
