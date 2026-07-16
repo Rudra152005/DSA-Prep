@@ -4,6 +4,9 @@ public:
         if(n <= 2){
             return n;
         }
+        if(n <= 2){
+            dp[n] = n;
+        }
         if(dp[n] != -1) {
             return dp[n];
         }
