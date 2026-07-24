@@ -2,11 +2,11 @@ class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
         int n = heights.size();
-        int maxarea = 0;
-        stack<int> st;
         int width = 0;
-        for(int i=0; i<=n; i++){
-            while(!st.empty() && (i == n || heights[i] <= heights[st.top()])){
+        stack<int> st;
+        int maxarea = 0;
+        for(int i=0; i<= n; i++){
+            while(!st.empty() && (i == n || heights[st.top()] >= heights[i])){
                 int height = heights[st.top()];
                 st.pop();
                 if(st.empty()){
