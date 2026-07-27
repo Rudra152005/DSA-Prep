@@ -1,26 +1,23 @@
 class Solution {
 public:
-    bool cansplit(vector<int>& nums, int k, int maxsum){
-        int subarr = 1;
-        int currsum = 0;
-        for(int num : nums){
-            if(currsum + num <= maxsum){
-                currsum += num;
-            }
-            else{
-                subarr++;
-                currsum = num;
-            }
-        }
-        return subarr <= k;
-    }
     int splitArray(vector<int>& nums, int k) {
         int l = *max_element(nums.begin(), nums.end());
         int r = accumulate(nums.begin(), nums.end(), 0);
         int ans = r;
         while(l <= r){
-            int mid = l + (r - l)/2;
-            if(cansplit(nums, k, mid)){
+            int mid = l + (r - l) /2;
+            int curr = 0;
+            int subarr = 1;
+            for(int num : nums){
+                if(curr + num > mid){
+                    subarr++;
+                    curr = num;
+                }
+                else{
+                    curr += num;
+                }
+            }
+            if(subarr <= k){
                 ans = mid;
                 r = mid - 1;
             }
