@@ -12,7 +12,8 @@ class Solution {
 public:
     typedef ListNode* ln;
     ListNode* reverse(ListNode* head){
-        ln curr = head, prev = NULL;
+        ln prev = NULL;
+        ln curr = head;
         while(curr){
             ln next = curr->next;
             curr->next = prev;
@@ -22,9 +23,7 @@ public:
         return prev;
     }
     bool isPalindrome(ListNode* head) {
-        if(!head && !head->next){
-            return true;
-        }
+        if(!head && !head->next) return true;
         ln fast = head;
         ln slow = head;
         while(fast && fast->next){
@@ -41,5 +40,7 @@ public:
             second = second->next;
         }
         return true;
+
+
     }
 };
