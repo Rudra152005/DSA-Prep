@@ -9,8 +9,7 @@ public:
         return num;
     }
     int smallestNumber(int n, int t) {
-        // int res = 1;
-        if(n % 10 == 0 ) return n;
+        int res = 1;
         while(1){
             if(product(n) % t != 0){
                 n += 1;
