@@ -2,26 +2,25 @@ class Solution {
 public:
     string build(string s){
         stack<char> st;
-        for(char c : s){
-            if(c != '#'){
-                st.push(c);
-            }
-            else{
+        for(char ch : s){
+            if(ch == '#'){
                 if(!st.empty()){
                     st.pop();
                 }
             }
+            else{
+                st.push(ch);
+            }
         }
-        string ans = "";
+        string res = "";
         while(!st.empty()){
-            ans += st.top();
+            res += st.top();
             st.pop();
         }
-        reverse(ans.begin(), ans.end());
-        return ans;
+        return res;
+        
     }
     bool backspaceCompare(string s, string t) {
         return build(s) == build(t);
-        
     }
 };
