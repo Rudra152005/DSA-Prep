@@ -6,4 +6,3 @@ class Solution:
             if nums[i] == target:
                 target += 1
         return target
-        
