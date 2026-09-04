@@ -12,5 +12,4 @@ class Solution:
         for i in range(len(maxlen)):
             if maxlen[i] - minlen[i] <= k:
                 return i
-                break
         return -1 
