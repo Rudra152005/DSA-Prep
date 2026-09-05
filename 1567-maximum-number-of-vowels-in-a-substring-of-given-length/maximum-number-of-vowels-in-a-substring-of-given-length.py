@@ -1,18 +1,23 @@
 class Solution:
-    def checkvov(self, s: str) -> bool:
-        if s == 'a' or s == 'e' or s == 'i' or s == 'o' or s == 'u':
+    def checkvo(self, s):
+        if s == 'a' or s == 'e'  or s == 'i' or s == 'o' or s == 'u':
             return True
-        return False 
+        return False
+
     def maxVowels(self, s: str, k: int) -> int:
         cnt = 0
         for i in range(k):
-            if self.checkvov(s[i]):
+            if self.checkvo(s[i]):
                 cnt += 1
         maxcnt = cnt
         for i in range(k, len(s)):
-            if self.checkvov(s[i - k]):
+            if self.checkvo(s[i - k]):
                 cnt -= 1
-            if self.checkvov(s[i]):
+            if self.checkvo(s[i]):
                 cnt += 1
             maxcnt = max(maxcnt, cnt)
         return maxcnt
+            
+
+
+        
