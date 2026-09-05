@@ -1,13 +1,13 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        
-        mp = {0 : 1}
-        cnt = 0
         sum = 0
+        cnt = 0 
+        mp = {0 : 1}
         for i in range(len(nums)):
             sum += nums[i]
-            if sum - k in mp:
-                cnt += mp[sum - k]
+            need = sum - k
+            if need in mp:
+                cnt += mp[need]
             mp[sum] = mp.get(sum, 0) + 1
         return cnt
         
