@@ -17,15 +17,11 @@ class Solution:
 
         for i in range(len(s)):
             ch = s[i]
-
-            # Add current character to window
             wind[ch] = wind.get(ch, 0) + 1
 
-            # Requirement for this character is satisfied
             if ch in need and wind[ch] == need[ch]:
                 form += 1
 
-            # Try shrinking window
             while form == req:
 
                 if i - left + 1 < min_len:
